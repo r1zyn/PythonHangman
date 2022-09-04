@@ -95,7 +95,7 @@ def generate_word() -> str:
         "https://random-word-api.herokuapp.com/word")
     word: str = ast.literal_eval(response.content.decode("utf-8"))[0].lower()
 
-    while len(word) < 5 or len(word) > 7:
+    while len(word) < 4 or len(word) > 7:
         response: requests.models.Response = requests.get(
             "https://random-word-api.herokuapp.com/word")
         word: str = ast.literal_eval(
