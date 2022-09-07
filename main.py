@@ -92,14 +92,14 @@ def generate_word() -> str:
     """
 
     response: requests.models.Response = requests.get(
-        "https://random-word-api.herokuapp.com/word")
-    word: str = ast.literal_eval(response.content.decode("utf-8"))[0].lower()
+        "https://api.api-ninjas.com/v1/randomword")
+    word: str = ast.literal_eval(response.content.decode("utf-8"))["word"].lower()
 
     while len(word) < 4 or len(word) > 7:
         response: requests.models.Response = requests.get(
-            "https://random-word-api.herokuapp.com/word")
+            "https://api.api-ninjas.com/v1/randomword")
         word: str = ast.literal_eval(
-            response.content.decode("utf-8"))[0].lower()
+            response.content.decode("utf-8"))["word"].lower()
 
     return word
 
